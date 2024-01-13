@@ -1,0 +1,84 @@
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.teeth-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1px;
+}
+
+.upper-teeth,
+.lower-teeth {
+  grid-column: span 8;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 5px;
+  transform: scaleY(0.8); /* Appliquer une déformation verticale (ellipse vers le bas) */
+}
+
+.upper-teeth {
+  margin-bottom: 10px;
+  transform-origin: center top; /* Origine de la transformation au centre et en haut */
+}
+
+.lower-teeth {
+  transform-origin: center bottom; /* Origine de la transformation au centre et en bas */
+}
+
+.tooth {
+  width: 40px;
+  height: 60px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.upper-teeth .tooth {
+  border-bottom-left-radius: 10px;  /* Coin inférieur gauche courbé pour les dents supérieures */
+  border-bottom-right-radius: 10px; /* Coin inférieur droit courbé pour les dents supérieures */
+}
+
+.lower-teeth .tooth {
+  border-top-left-radius: 10px;  /* Coin supérieur gauche courbé pour les dents inférieures */
+  border-top-right-radius: 10px; /* Coin supérieur droit courbé pour les dents inférieures */
+}
+
+/* Ajout de la ligne verticale à gauche pour les dents 5 et 21 */
+.tooth:nth-child(5),
+.tooth:nth-child(21) {
+  border-left: 2px solid black;
+}
+
+/* Ajout de la ligne verticale à droite pour les dents 12 et 28 */
+.tooth:nth-child(12),
+.tooth:nth-child(28) {
+  border-right: 2px solid black;
+}
+.lower-teeth .tooth:nth-child(5),.lower-teeth .tooth:nth-child(6),.lower-teeth .tooth:nth-child(7),
+.lower-teeth .tooth:nth-child(8),.lower-teeth .tooth:nth-child(9),.lower-teeth .tooth:nth-child(10),
+.lower-teeth .tooth:nth-child(11),.lower-teeth .tooth:nth-child(12){
+    margin-top: -10px;
+}
+
+.upper-teeth .tooth:nth-child(5),.upper-teeth .tooth:nth-child(6),.upper-teeth .tooth:nth-child(7),
+.upper-teeth .tooth:nth-child(8),.upper-teeth .tooth:nth-child(9),.upper-teeth .tooth:nth-child(10),
+.upper-teeth .tooth:nth-child(11),.upper-teeth .tooth:nth-child(12){
+    margin-top: 10px;
+}
+
+.tooth.damaged {
+  background-color: red;
+}
+
+.tooth.missing {
+  background-color: black;
+  color: white;
+}
